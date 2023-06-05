@@ -26,17 +26,17 @@ The repository also contains a folder named `Data`, which includes the datasets 
 
 To add additional airdrops, the datasets should have the following structure:
 
-- First column: `time` - the time of the piece of data.
+- First column: `time` - the time at which each piece of data was recorded.
 - Second column: `price` - the price of the base asset in ETH.
-- Third column: `feeGrowth0` - the value of `feeGrowthGlobal0` variable of the studied liquidity pool.
-- Fourth column: `feeGrowth1` - the value of `feeGrowthGlobal1` variable of the studied liquidity pool. 
+- Third column: `feeGrowth0` - the value of `feeGrowthGlobal0` variable of the liquidity pool being studied.
+- Fourth column: `feeGrowth1` - the value of `feeGrowthGlobal1` variable of the liquidity pool being studied. 
 
 ## Usage:
 
 To use the code provided in this repository, follow the instructions below:
 
 1. Install the required libraries: `math`, `pandas`, `matplotlib`, and `numpy`. 
-2. Run the code: `python <desired_strategy> <dataset>` (e.g., `python Strategy1.py dataBLUR.csv`)
+2. Run the code: `python <desired_strategy> <dataset>` (e.g., `python Strategies/Strategy1.py Data/dataBLUR.csv`)
 
 ## Author:
 
