@@ -2,7 +2,7 @@ import math
 import pandas as pd
 
 # Load dataset
-df = pd.read_csv('dataPSP.csv')
+df = pd.read_csv('Data/dataPSP.csv')
 
 # Set variables
 decimals = 10**18
