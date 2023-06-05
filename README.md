@@ -6,15 +6,15 @@ This repository includes the code required to backtest the three strategies expl
 
 1. **Strategy 1: Provide liquidity to the whole price range**
     - Description: This strategy involves providing liquidity in a price range of 0.01 to 100 times the first price observed in the dataset. It aims to mimic Uniswap v2 liquidity provision strategies.
-    - Folder: `/Strategies/Strategy1`
+    - Folder: `/Strategies/Strategy1.py`
 
 2. **Strategy 2: Provide liquidity within ±50% range**
     - Description: This strategy leverages liquidity concentration by defining an upper limit and a lower limit set at 50% of the first price observed in the database.
-    - Folder: `/Strategies/Strategy2`
+    - Folder: `/Strategies/Strategy2.py`
 
 3. **Strategy 3: Provide liquidity within ±30% range with rebalancing**
     - Description: In this strategy, the range is set with an upper limit and a lower limit set at 30% from the price when the rebalancing event takes place. When the current price reaches 10% from either boundary, the position is closed, and a new position is established.
-    - Folder: `/Strategies/Strategy3`
+    - Folder: `/Strategies/Strategy3.py`
 
 ## Dataset:
 
