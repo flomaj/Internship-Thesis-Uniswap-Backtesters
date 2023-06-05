@@ -16,8 +16,6 @@ This repository includes the code required to backtest the three strategies expl
     - Description: In this strategy, the range is set with an upper limit and a lower limit set at 30% from the price when the rebalancing event takes place. When the current price reaches 10% from either boundary, the position is closed, and a new position is established.
     - Folder: `/Strategies/Strategy3`
 
-![Picture](add_picture_url)
-
 ## Dataset:
 
 The repository also contains a folder named `Data`, which includes the datasets of the four airdrops analyzed: APE, BLUR, PSP, and HOP.
