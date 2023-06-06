@@ -36,7 +36,7 @@ To add additional airdrops, the datasets should have the following structure:
 To use the code provided in this repository, follow the instructions below:
 
 1. Install the required libraries: `math`, `pandas`, `matplotlib`, and `numpy`. 
-2. Run the code: `python <desired_strategy> <dataset>` (e.g., `python Strategies/Strategy1.py Data/dataBLUR.csv`)
+2. Run the code: `python main.py`
 
 ## Author:
 
