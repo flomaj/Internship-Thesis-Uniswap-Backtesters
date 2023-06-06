@@ -13,7 +13,7 @@ This repository includes the code required to backtest the three strategies expl
     - Folder: `/Strategies/Strategy2.py`
 
 3. **Strategy 3: Provide liquidity within ±30% range with rebalancing**
-    - Description: In this strategy, the range is set with an upper limit and a lower limit set at 30% from the price when the rebalancing event takes place. When the current price reaches 10% from either boundary, the position is closed, and a new position is established.
+    - Description: In this strategy, the range is set with an upper limit and a lower limit set at 30% from the price. When the current price reaches 10% from either boundary, the position is closed, and a new position is established with a fresh upper limit and lower limit, set at 30% from the new price.
     - Folder: `/Strategies/Strategy3.py`
 
 ![Illustration of Strategy 1, Strategy 2 and Strategy 3.](Strategies/StrategiesIllustration.png)
