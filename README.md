@@ -43,7 +43,8 @@ To use the code provided in this repository, follow the instructions below:
 `<token>` available: `APE`, `BLUR`, `HOP` and `PSP`.
 
 ## Expected Output:
-XXX
+
+![Illustration of expected output.](Strategies/Output.png)
     
 ## Author:
 
