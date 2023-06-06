@@ -35,9 +35,15 @@ To add additional airdrops, the datasets should have the following structure:
 
 To use the code provided in this repository, follow the instructions below:
 
-1. Install the required libraries: `math`, `pandas`, `matplotlib`, and `numpy`. 
-2. Run the code: `python main.py`
+1. Install the required libraries: `math`, `pandas`, `matplotlib`, `sys` and `numpy`. 
+2. Run the following command in your terminal: `python main.py <strat> <token>` (ex: `python main.py 3 BLUR`)
 
+<strat> available: `1`, `2` and `3`.
+<token> available: `APE`, `BLUR`, `HOP` and `PSP`.
+
+## Expected Output:
+XXX
+    
 ## Author:
 
 - Florian Majérus (University of Lausanne, HEC)
