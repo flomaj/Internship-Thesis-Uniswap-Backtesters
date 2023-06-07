@@ -149,7 +149,7 @@ def output(df):
 
 def strategy2(dataset):
     """
-    Running the backtester of the first strategy.
+    Running the backtester of the second strategy.
 
     Parameter: 
         dataset: The dataset that will be backtested. Has to be a csv file.
