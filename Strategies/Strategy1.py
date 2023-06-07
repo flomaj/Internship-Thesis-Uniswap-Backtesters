@@ -4,13 +4,25 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Set variables
-decimals = 10**18
-q96 = 2**96
-q128 = 2**128
-starting_base_amount = 1000 * decimals
+decimals = 10**18  # Number of decimal places of our studied tokens.
+q96 = 2**96  # Number Q64.96 used by Uniswap for liquidity computations. Needed to translate to human-readable format.
+q128 = 2**128  # Number used by Uniswap for fees computations. Needed to translate to human-readable format.
+starting_base_amount = 1000 * decimals  # Theoretical amount of tokens received during the airdrop.
+
 
     # Compute liquidity added to the pool
 def compute_liquidity(tL, tH, price0, amount_0, amount_1):
+    """
+    Computes the amount of unbounded liquidity provided by the position to the liquidity pool.
+
+    Parameters:
+        tL: The lower boundary of the range.
+        tH: The upper boundary of the range.
+        price0: The current price at deployment.
+        amount_0: The amount of base asset.
+        amount_1: The amount of quote asset (ETH).
+    """
+    
     sqrtp_low = int(math.sqrt(tL) * q96) 
     sqrtp_cur = int(math.sqrt(price0) * q96) 
     sqrtp_upp = int(math.sqrt(tH) * q96) 
