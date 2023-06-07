@@ -28,11 +28,27 @@ def compute_liquidity(tL, tH, price0, amount_0, amount_1):
     sqrtp_upp = int(math.sqrt(tH) * q96) 
 
     def liquidity0(amount, pa, pb):
+        """
+        Computes the amount of unbounded liquidity provided by the position to the liquidity pool (base asset method).
+
+        Parameters:
+            amount: The amount of base asset.
+	        pa: The square root of current price multiplied by 2**96.
+	        pb: The square root of the upper boundary multiplied by 2**96.
+        """
         if pa > pb: #if "pa" is greater than "pb"
             pa, pb = pb, pa #the values of "pa" and "pb" will be swapped, and "pa" will now have the original value of "pb" and "pb" will have the original value of "pa".
         return (amount * (pa * pb) / q96) / (pb - pa)
         
     def liquidity1(amount, pa, pb):
+        """
+        Computes the amount of unbounded liquidity provided by the position to the liquidity pool (quote asset method).
+
+        Parameters:
+             amount: The amount of base asset.
+             pa: The square root of current price multiplied by 2**96.
+             pb: The square root of the lower boundary multiplied by 2**96.
+        """
         if pa > pb:
             pa, pb = pb, pa
             return amount * q96 / (pb - pa)
@@ -44,6 +60,14 @@ def compute_liquidity(tL, tH, price0, amount_0, amount_1):
 
     # Compute fees (the fees generated)
 def fees(i, df):
+    """
+    Computes the amount of fees generated between the last observation.
+
+    Parameters: 
+        i: The current row.
+        df: The dataframe used.
+
+    """
     df.deltaFee0[i] = df.feeGrowth0[i] - df.feeGrowth0[i-1]
     df.deltaFee1[i] = df.feeGrowth1[i] - df.feeGrowth1[i-1]
     df.myFee0[i] = df.myFee0[i-1] + (df.deltaFee0[i] / decimals / q128) * df.myUnbLiq[i]
@@ -52,6 +76,13 @@ def fees(i, df):
     df.totalFeeIn1[i] = df.myFee0in1[i] + df.myFee1[i]
 
 def fees_out(i, df):
+    """
+    Set the amount of fees generated between the last observation to 0.
+
+    Parameters: 
+        i: The current row.
+        df: The dataframe used.
+    """
     df.deltaFee0[i] = 0
     df.deltaFee1[i] = 0
     df.myFee0[i] = df.myFee0[i-1] + (df.deltaFee0[i] / decimals / q128) * df.myUnbLiq[i]
@@ -60,6 +91,12 @@ def fees_out(i, df):
     df.totalFeeIn1[i] = df.myFee0in1[i] + df.myFee1[i]
 
 def output(df):
+    """
+    Creating the graph that will be braodcasted when running the code.
+
+    Parameter: 
+        df: The dataframe used.
+    """
     # Create the figure and subplots
     fig, axs = plt.subplots(2, 2, figsize=(14, 12))
 
@@ -113,6 +150,12 @@ def output(df):
 
 
 def strategy1(dataset):
+    """
+    Running the backtester of the first strategy.
+
+    Parameter: 
+        dataset: The dataset that will be backtested. Has to be a csv file.
+    """
     
     # Load dataset
     df = pd.read_csv(dataset)
@@ -131,7 +174,7 @@ def strategy1(dataset):
     df['myFee0'] = 0 
     df['myFee0in1'] = 0 
     df['myFee1'] = 0 
-    df['totalFeeIn1'] = 0 # total amount of fees in terms of quote at current price. 
+    df['totalFeeIn1'] = 0 # total amount of fees in terms of quote at current price (ETH). 
     df['hold1'] = (starting_base_amount / decimals) * df.price + (df.amount1[0] / decimals)
 
     # Iterate over each row of the DataFrame to run our backtester
