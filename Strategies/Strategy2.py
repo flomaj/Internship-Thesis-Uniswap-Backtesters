@@ -140,10 +140,22 @@ def output(df):
     axs[1, 0].legend()
     axs[1, 0].tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
 
-    # Hide unused subplot
-    axs[1, 1].axis('off')
+    # Fourth graph - Bottom right subplot
+    axs[1, 1].axis('off')  # Hide unused subplot
+
+    # Add the text to the fourth subplot
+    text = "On-Chain Liquidity Provision Strategies for Airdropped Tokens"
+    axs[1, 1].text(0.5, 0.5, text, horizontalalignment='center', verticalalignment='center', fontweight='bold',
+                   fontsize=13)
+
+    # Customize the text properties for "Florian Majerus"
+    axs[1, 1].text(0.5, 0.40, "Florian Majerus", horizontalalignment='center', verticalalignment='center',
+                   fontsize=11)
 
     plt.tight_layout()  # Ensures the subplots are properly spaced
+
+    # Adjust the spacing between the subplots
+    plt.subplots_adjust(hspace=0.25, wspace=0.15)
     plt.show()
 
 
